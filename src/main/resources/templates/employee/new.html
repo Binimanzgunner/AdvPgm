@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <form th:action="@{/employee/new}" th:object="${employee}" method="post">
+    <fieldset>
+      <legend>Employee Registration Form</legend>
+      <input type="hidden" th:value="${employee.employeeId}" name="employeeId">
+
+      <div class="form-group">
+        <label for="name">Employee Name</label>
+        <input type="text" class="form-control" id="name" th:value="${employee.name}" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Employee Age</label>
+        <input type="text" class="form-control" id="age" name="age" th:value="${employee.age}">
+      </div>
+      <div class="form-group">
+        <label for="department">Employee Department</label>
+        <input type="text" class="form-control" id="department" name="department" th:value="${employee.department}">
+      </div>
+      <div class="form-group">
+        <label for="position">Employee Position</label>
+        <input type="text" class="form-control" id="position" name="position" th:value="${employee.position}">
+      </div>
+      <div>
+        <a href="#" class="btn btn-outline-warning">Cancel</a>
+        <button class="btn btn-outline-success" type="submit">Save</button>
+
+      </div>
+
+
+
+    </fieldset>
+  </form>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

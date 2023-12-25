@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <form th:action="@{/employee/edit}" method="post" th:object="${Employee}">
+    <fieldset>
+      <legend>Employee Edition form</legend>
+      <input type="hidden" name="employeeId" th:value="${employee.employeeId}">
+
+      <div class="form-group">
+        <label for="employeeName"> Employee Name</label>
+        <input type="text" class="form-control" id="employeeName" name="employeeName"
+        th:value="${employee.name}">
+      </div>
+
+      <div class="form-group">
+        <label for="age"> Employee Age</label>
+        <input type="text" class="form-control" id="age" name="age"
+               th:value="${employee.age}">
+      </div>
+      <div class="form-group">
+        <label for="department"> Employee Department</label>
+        <input type="text" class="form-control" id="department" name="department"
+               th:value="${employee.department}">
+      </div>
+      <div class="form-group">
+        <label for="postition"> Employee Position</label>
+        <input type="text" class="form-control" id="postition" name="postition"
+               th:value="${employee.position}">
+      </div>
+      <div>
+        <a th:href="@{/employee/list}" class="btn btn-outline-success">Cancel</a>
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+    </fieldset>
+  </form>
+
+
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

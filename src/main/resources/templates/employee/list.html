@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+<table class="table table-hover" id="employee-table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Age</th>
+        <th scope="col">Department</th>
+        <th scope="col">Position</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee,iter:${employees}">
+        <th scope="row" th:text="${iter.count}"></th>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.age}"></td>
+        <td><a th:href="@{/employee/delete/__${employee.employeeId}__}" class="btn btn-outline-danger">Delete</a></td>
+        <td><a th:href="@{/employee/edit/__${employee.employeeId}__}" class="btn btn-outline-danger">Update</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

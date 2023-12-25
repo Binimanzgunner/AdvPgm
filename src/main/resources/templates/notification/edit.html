@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <form th:action="@{/notification/edit}" method="post" th:object="${notification}">
+    <fieldset>
+      <legend>Notification Edition form</legend>
+      <input type="hidden" name="notificationId" th:value="${notification.notificationId}">
+
+      <div class="form-group">
+        <label for="message"> Message</label>
+        <input type="text" class="form-control" id="message" name="message"
+        th:value="${notification.message}">
+      </div>
+
+      <div class="form-group">
+        <label for="sender"> Sender</label>
+        <input type="text" class="form-control" id="sender" name="sender"
+               th:value="${notificaiton.sender}">
+      </div>
+      <div class="form-group">
+        <label for="receiver"> Receiver</label>
+        <input type="text" class="form-control" id="receiver" name="receiver"
+               th:value="${notification.receiver}">
+      </div>
+      <div class="form-group">
+        <label for="timeStamp"> Time Sent</label>
+        <input type="text" class="form-control" id="timeStamp" name="timeStamp"
+               th:value="${notification.timeStamp}">
+      </div>
+      <div>
+        <a th:href="@{/notification/list}" class="btn btn-outline-success">Cancel</a>
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+    </fieldset>
+  </form>
+
+
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>
